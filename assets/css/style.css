@@ -1,0 +1,255 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMENTAAÊ — LANDPAGE CSS
+   Dev 2 — feature-css
+   Responsabilidade: estilização visual fiel ao design
+   Nota: este arquivo estiliza as classes definidas pelo Dev 1 no index.html
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ─── RESET E VARIÁVEIS GLOBAIS ─────────────────────────────────────────────── */
+
+/* Zera margens e paddings padrão do browser — evita inconsistências entre Chrome, Firefox e Safari */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* garante que padding não expanda o tamanho do elemento */
+}
+
+/* Variáveis CSS — sistema de design tokens igual ao que o Facebook usa internamente */
+/* Centralizar cores aqui permite trocar o tema inteiro mudando só esse bloco */
+:root {
+    --cor-fundo: #0c0c0c; /* fundo principal — preto quase absoluto do design */
+    --cor-navbar: #0c0c0c; /* fundo da navbar — mesma cor do fundo para integração */
+    --cor-divisor: #1e1e1e; /* linha divisória abaixo da navbar */
+    --cor-texto-branco: #ffffff; /* textos principais brancos */
+    --cor-texto-cinza: #a0a0a0; /* textos secundários e links da navbar */
+    --cor-roxo: #b09eff; /* acento roxo — palavra "Vizinhança" e botão primário */
+    --cor-roxo-hover: #c8baff; /* roxo mais claro no hover do botão */
+    --cor-btn-primario: #a08eff; /* fundo do botão "Get Started" */
+    --cor-btn-secundario: transparent; /* fundo transparente do botão "View Demo" */
+    --cor-btn-borda: #3a3a3a; /* borda do botão secundário */
+    --fonte-principal: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Define a fonte base e o fundo escuro em todo o documento */
+html {
+    font-family: var(--fonte-principal);
+    font-size: 16px; /* base para cálculos rem — padrão da indústria */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-branco);
+}
+
+/* Remove decoração de links globalmente — cada componente define o seu estilo */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ─── NAVBAR ────────────────────────────────────────────────────────────────── */
+
+/* Container principal da navbar — fixo no topo como o header do Reddit */
+.navbar {
+    position: fixed; /* fica no topo mesmo ao rolar a página */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* garante que fica acima de todo o conteúdo */
+    display: flex; /* layout horizontal: links à esquerda, ações à direita */
+    align-items: center; /* centraliza verticalmente os itens */
+    justify-content: space-between; /* empurra links para esquerda, ações para direita */
+    padding: 0 2.5rem; /* espaçamento lateral generoso como o Instagram */
+    height: 64px; /* altura fixa — padrão de navbar em plataformas de escala */
+    background-color: var(--cor-navbar);
+    border-bottom: 1px solid var(--cor-divisor); /* linha sutil separando navbar do conteúdo */
+}
+
+/* Links de navegação do lado esquerdo */
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* espaçamento entre os links */
+}
+
+/* Estilo individual de cada link da navbar */
+.navbar__links a {
+    color: var(--cor-texto-cinza);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s ease; /* transição suave no hover */
+}
+
+/* Hover dos links da navbar — feedback visual imediato */
+.navbar__links a:hover {
+    color: var(--cor-texto-branco);
+}
+
+/* Container das ações do lado direito */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+/* Link de login — sem destaque visual, apenas texto */
+.navbar__login {
+    color: var(--cor-texto-cinza);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.navbar__login:hover {
+    color: var(--cor-texto-branco);
+}
+
+/* ─── BOTÕES — SISTEMA REUTILIZÁVEL ─────────────────────────────────────────── */
+
+/* Classe base de botão — compartilhada por todos os botões do sistema */
+/* Igual ao sistema de componentes do Twitter Bootstrap mas sem a dependência */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px; /* bordas totalmente arredondadas como no design */
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease; /* transições suaves */
+    border: 1px solid transparent;
+}
+
+/* Botão primário — roxo, ação principal da página */
+.btn--primary {
+    background-color: var(--cor-btn-primario);
+    color: var(--cor-texto-branco);
+    border-color: var(--cor-btn-primario);
+}
+
+.btn--primary:hover {
+    background-color: var(--cor-roxo-hover);
+    border-color: var(--cor-roxo-hover);
+}
+
+/* Botão secundário — transparente com borda, ação alternativa */
+.btn--secondary {
+    background-color: var(--cor-btn-secundario);
+    color: var(--cor-texto-branco);
+    border-color: var(--cor-btn-borda);
+}
+
+.btn--secondary:hover {
+    border-color: #666;
+    background-color: rgba(255, 255, 255, 0.05); /* leve destaque no hover */
+}
+
+/* ─── HERO ───────────────────────────────────────────────────────────────────── */
+
+/* Seção principal — ocupa a altura total da viewport como o hero do Stripe */
+.hero {
+    min-height: 100vh; /* altura mínima igual à tela inteira */
+    display: flex;
+    flex-direction: column; /* empilha os elementos verticalmente */
+    align-items: center; /* centraliza horizontalmente */
+    justify-content: center; /* centraliza verticalmente */
+    text-align: center; /* centraliza o texto */
+    padding: 6rem 2rem 4rem; /* padding top compensa a navbar fixa de 64px */
+    gap: 2rem; /* espaçamento uniforme entre os blocos do hero */
+}
+
+/* Container do logo — ícone + texto lado a lado */
+.hero__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem; /* espaço extra abaixo do logo antes do título */
+}
+
+/* Imagem do ícone SVG ao lado do texto do logo */
+.hero__logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Texto "Comentaaê" ao lado do ícone */
+.hero__logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto-branco);
+    letter-spacing: -0.02em; /* leve compressão de espaçamento como no design */
+}
+
+/* Título principal H1 — duas linhas de texto grande */
+.hero__title {
+    display: flex;
+    flex-direction: column; /* cada span em uma linha separada */
+    align-items: center;
+    gap: 0.25rem;
+    font-size: clamp(2.5rem, 6vw, 5rem); /* tamanho fluido — grande no desktop, menor no mobile */
+    font-weight: 800;
+    line-height: 1.1; /* entrelinha compacta para títulos grandes */
+    letter-spacing: -0.03em; /* compressão de espaçamento — padrão em títulos modernos */
+}
+
+/* Primeira linha do título — branco puro */
+.hero__title--white {
+    color: var(--cor-texto-branco);
+}
+
+/* Segunda linha do título — container com mix de cores */
+.hero__title--line2 {
+    color: var(--cor-texto-branco);
+}
+
+/* Palavra de destaque em roxo — "Vizinhança" */
+.hero__title--purple {
+    color: var(--cor-roxo);
+    font-style: italic; /* itálico sutil para diferenciar a palavra de destaque */
+}
+
+/* Subtítulo descritivo — texto secundário abaixo do título */
+.hero__subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* também fluido para responsividade */
+    color: var(--cor-texto-cinza);
+    line-height: 1.7; /* entrelinha generosa para legibilidade */
+    max-width: 560px; /* limita largura para não ultrapassar ~70 caracteres por linha */
+}
+
+/* Container dos botões de ação */
+.hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Botões do hero são um pouco maiores que os da navbar */
+.hero__actions .btn {
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────────── */
+
+/* Rodapé fixo na base da página */
+.footer {
+    position: fixed; /* fixo na base como o footer do GitHub */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--cor-divisor); /* linha divisória acima do footer */
+    background-color: var(--cor-fundo);
+}
+
+/* Texto do copyright */
+.footer__text {
+    font-size: 0.8rem;
+    color: var(--cor-texto-cinza);
+}
