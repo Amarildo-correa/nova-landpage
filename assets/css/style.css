@@ -32,7 +32,7 @@
     --fonte-principal: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/* Define a fonte base e o fundo escuro em todo o documento */
+/* Define as fonte base e o fundo escuro em todo o documento */
 html {
     font-family: var(--fonte-principal);
     font-size: 16px; /* base para cálculos rem — padrão da indústria */
