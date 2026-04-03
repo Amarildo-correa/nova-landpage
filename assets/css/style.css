@@ -19,11 +19,11 @@
 /* Variáveis CSS — sistema de design tokens igual ao que o Facebook usa internamente */
 /* Centralizar cores aqui permite trocar o tema inteiro mudando só esse bloco */
 :root {
-    --cor-fundo: #0c0c0c; /* fundo principal — preto quase absoluto do design */
-    --cor-navbar: #0c0c0c; /* fundo da navbar — mesma cor do fundo para integração */
-    --cor-divisor: #1e1e1e; /* linha divisória abaixo da navbar */
-    --cor-texto-branco: #ffffff; /* textos principais brancos */
-    --cor-texto-cinza: #a0a0a0; /* textos secundários e links da navbar */
+    --cor-fundo: #181a18; /* fundo principal — preto quase absoluto do design */
+    --cor-navbar: #181a18; /* fundo da navbar — mesma cor do fundo para integração */
+    --cor-divisor: #252725; /* linha divisória abaixo da navbar */
+    --cor-texto-branco: #faf9f6; /* textos principais brancos */
+    --cor-texto-cinza: #c8c5d0; /* textos secundários e links da navbar */
     --cor-roxo: #b09eff; /* acento roxo — palavra "Vizinhança" e botão primário */
     --cor-roxo-hover: #c8baff; /* roxo mais claro no hover do botão */
     --cor-btn-primario: #a08eff; /* fundo do botão "Get Started" */
