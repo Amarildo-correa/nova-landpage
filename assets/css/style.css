@@ -22,7 +22,7 @@
     --cor-fundo: #181a18; /* fundo principal — preto quase absoluto do design */
     --cor-navbar: #181a18; /* fundo da navbar — mesma cor do fundo para integração */
     --cor-divisor: #252725; /* linha divisória abaixo da navbar */
-    --cor-texto-branco: #faf9f6; /* textos principais brancos */
+    --cor-texto-branco: #e8e6ec; /* textos principais brancos */
     --cor-texto-cinza: #c8c5d0; /* textos secundários e links da navbar */
     --cor-roxo: #b09eff; /* acento roxo — palavra "Vizinhança" e botão primário */
     --cor-roxo-hover: #c8baff; /* roxo mais claro no hover do botão */
@@ -160,6 +160,11 @@ a {
     gap: 2rem; /* espaçamento uniforme entre os blocos do hero */
 }
 
+.caixa__logo {
+    width: 245px;
+    display: flex;
+}
+
 /* Container do logo — ícone + texto lado a lado */
 .hero__logo {
     display: flex;
@@ -170,18 +175,28 @@ a {
 }
 
 /* Imagem do ícone SVG ao lado do texto do logo */
+.hero__logo {
+    position: relative; /* permite posicionar o texto por cima */
+    display: inline-block;
+}
+
 .hero__logo-img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
+    width: 56px;
+    height: 56px;
+    display: block;
 }
 
 /* Texto "Comentaaê" ao lado do ícone */
 .hero__logo-text {
-    font-size: 1.8rem;
-    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 33px; /* controla o encaixe no "C" */
+    top: 35px;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    font-weight: 800;
     color: var(--cor-texto-branco);
-    letter-spacing: -0.02em; /* leve compressão de espaçamento como no design */
+    letter-spacing: -0.03em;
 }
 
 /* Título principal H1 — duas linhas de texto grande */
@@ -217,7 +232,7 @@ a {
     font-size: clamp(0.95rem, 2vw, 1.1rem); /* também fluido para responsividade */
     color: var(--cor-texto-cinza);
     line-height: 1.7; /* entrelinha generosa para legibilidade */
-    max-width: 560px; /* limita largura para não ultrapassar ~70 caracteres por linha */
+    max-width: 600px; /* limita largura para não ultrapassar ~70 caracteres por linha */
 }
 
 /* Container dos botões de ação */
