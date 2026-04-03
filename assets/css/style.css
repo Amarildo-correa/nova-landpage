@@ -7,7 +7,7 @@
 
 /* ─── RESET E VARIÁVEIS GLOBAIS ─────────────────────────────────────────────── */
 
-/* Zera margens e paddings padrão do browser — evita inconsistências entre Chrome, Firefox e Safari */
+/* Zeras margens e paddings padrão do browser — evita inconsistências entre Chrome, Firefox e Safari */
 *,
 *::before,
 *::after {
